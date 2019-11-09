@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb6c51ade70a7b4c8c112af38767c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunPrefab: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!4 &1365974246
 Transform:
   m_ObjectHideFlags: 0
@@ -5217,8 +5219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationMagnitude: 10
-  eruptionPrefab: {fileID: 6512510121322379885, guid: dfb0d083e3512f646a7c6eaeac47f27c,
-    type: 3}
+  skill1Prefab: {fileID: 0}
+  skill2Prefab: {fileID: 0}
+  fx1: {fileID: 0}
+  fx2: {fileID: 0}
 --- !u!1 &1981799439
 GameObject:
   m_ObjectHideFlags: 0

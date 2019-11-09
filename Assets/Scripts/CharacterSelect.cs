@@ -23,7 +23,7 @@ public class CharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(L))
+    /*    if (Input.GetKeyDown(L))
         {
             if (cha_ID > 0)
             {
@@ -52,6 +52,10 @@ public class CharacterSelect : MonoBehaviour
             Info.text = Cha_info[cha_ID];
             Img.sprite = Cha_img[cha_ID];
             Img.SetNativeSize();
+        }*/
+        if(Input.GetKeyDown(L)&& Input.GetKeyDown(R))
+        {
+
         }
     }   
 }
