@@ -17,6 +17,7 @@ public class PlayerFoot : MonoBehaviour
         {
             player.canJump = true;
             standOnFootCount++;
+            //Debug.Log("in: " + other.name);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -25,6 +26,8 @@ public class PlayerFoot : MonoBehaviour
         {
             if(--standOnFootCount == 0)
                 player.canJump = false;
+            //Debug.Log("out: " + other.name);
+
         }
     }
 }

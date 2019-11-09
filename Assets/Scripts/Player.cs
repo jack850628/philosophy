@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private KeyCode keyLeft, keyRight, keyJump;
     private float speed = 12f;
     private Rigidbody rigidbody;
+    private Animator animator;
 
 
     public bool canJump;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        animator = transform.GetComponent<Animator>();
     }
 
     private void Update()
@@ -25,17 +27,22 @@ public class Player : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
             transform.Translate(new Vector2(-speed, 0f) * Time.deltaTime);
+            if(canJump)
+                animator.Play("Move");
         }
         if (Input.GetKey(keyRight))
         {
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
             transform.Translate(new Vector2(speed, 0f) * Time.deltaTime);
+            if (canJump)
+                animator.Play("Move");
         }
         if (Input.GetKey(keyJump) && canJump)
         {
             canJump = false;
             rigidbody.velocity = new Vector2(rigidbody.velocity.y, 0);
             rigidbody.AddForce(new Vector2(0, 12), ForceMode.Impulse);
+            animator.Play("none");
         }
     }
     /*private void OnCollisionEnter(Collision collision)
