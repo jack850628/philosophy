@@ -71,7 +71,11 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\ButtonEvent.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
+    <Compile Include="Assets\Scripts\End.cs" />
+    <Compile Include="Assets\Scripts\Scroe.cs" />
+    <Compile Include="Assets\Scripts\Settlement.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Shader\Ranbow.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/a8789/Documents/Philosophy♂/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
