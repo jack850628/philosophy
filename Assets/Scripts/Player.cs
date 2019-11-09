@@ -10,42 +10,88 @@ public class Player : MonoBehaviour
     private float speed = 12f;
     private Rigidbody rigidbody;
     private Animator animator;
+    private float deadRad;
+
 
     public int score;
-
-
     public bool canJump;
+    public GameObject deathExplosion;
 
+    public int f = 100;
+
+    public enum PlayerStatus
+    {
+        LIFE,
+        DEADING,
+        DEADED
+    }
+    public PlayerStatus playerStatus;
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = transform.GetComponent<Animator>();
-        score = 0;
+        playerStatus = PlayerStatus.LIFE;
     }
 
     private void Update()
     {
         if (GameStatus.gameStatus != GameStatus.Status.RUNNING) return;
-        if (Input.GetKey(keyLeft))
+        if (playerStatus == PlayerStatus.LIFE)
         {
-            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
-            transform.Translate(new Vector2(-speed, 0f) * Time.deltaTime);
-            if(canJump)
-                animator.Play("Move");
+            if (Input.GetKey(keyLeft))
+            {
+                rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+                transform.Translate(new Vector2(-speed, 0f) * Time.deltaTime);
+                if (canJump)
+                    animator.Play("Move");
+            }
+            if (Input.GetKey(keyRight))
+            {
+                rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+                transform.Translate(new Vector2(speed, 0f) * Time.deltaTime);
+                if (canJump)
+                    animator.Play("Move");
+            }
+            if (Input.GetKey(keyJump) && canJump)
+            {
+                canJump = false;
+                rigidbody.velocity = new Vector2(rigidbody.velocity.y, 0);
+                rigidbody.AddForce(new Vector2(0, 12), ForceMode.Impulse);
+                animator.Play("none");
+            }
+            if (f < 0)
+                goTobDead();
         }
-        if (Input.GetKey(keyRight))
+        else if(playerStatus == PlayerStatus.DEADING)
         {
-            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
-            transform.Translate(new Vector2(speed, 0f) * Time.deltaTime);
-            if (canJump)
-                animator.Play("Move");
+            transform.Find("Cube").Find("image").Rotate(Vector3.forward * 2000 * Time.deltaTime);
         }
-        if (Input.GetKey(keyJump) && canJump)
+    }
+    public void goTobDead()
+    {
+        deadRad = Random.Range(-45f, 45f) * Mathf.Deg2Rad;
+        rigidbody.AddForce(new Vector2(Mathf.Sin(deadRad) * 30, Mathf.Cos(deadRad) * 30), ForceMode.Impulse);
+        GetComponent<Collider>().isTrigger = true;
+        playerStatus = PlayerStatus.DEADING;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (playerStatus == PlayerStatus.DEADING && other.gameObject.CompareTag("Floor"))
         {
-            canJump = false;
-            rigidbody.velocity = new Vector2(rigidbody.velocity.y, 0);
-            rigidbody.AddForce(new Vector2(0, 12), ForceMode.Impulse);
-            animator.Play("none");
+            playerStatus = PlayerStatus.DEADED;
+            var newPlayer = Instantiate(gameObject);
+            newPlayer.transform.position = new Vector3(0f, 0f, -0.09603548f);
+            newPlayer.GetComponent<Collider>().isTrigger = false;
+            var player = newPlayer.GetComponent<Player>();
+            player.playerStatus = PlayerStatus.LIFE;
+            player.f = 100;
+            player.GetComponent<Rigidbody>().velocity = new Vector3();
+            newPlayer.transform.Find("Cube").Find("image").transform.rotation = Quaternion.identity;
+            var de = Instantiate(deathExplosion);
+            de.transform.position = transform.position;
+            Destroy(de, 0.5f);
+            Destroy(gameObject);
         }
     }
     /*private void OnCollisionEnter(Collision collision)

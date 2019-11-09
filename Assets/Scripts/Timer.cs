@@ -8,14 +8,14 @@ public class Timer : MonoBehaviour
     private Action callBack;
     private float sec;
     private bool isRun;
-
-    public Text time;
+    private Text time;
 
     public void startTime(float sec, Action callBack)
     {
         this.sec = sec;
         this.callBack = callBack;
         isRun = true;
+        time = GetComponent<Text>();
     }
     void Update()
     {

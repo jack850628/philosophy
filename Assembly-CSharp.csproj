@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\ButtonEvent.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
     <Compile Include="Assets\Scripts\End.cs" />
-    <Compile Include="Assets\Scripts\game\P.cs" />
     <Compile Include="Assets\Scripts\game\S.cs" />
     <Compile Include="Assets\Scripts\GameStatus.cs" />
     <Compile Include="Assets\Scripts\HereComesTheSun.cs" />

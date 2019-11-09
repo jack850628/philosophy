@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ButtonEvent : MonoBehaviour
 {
-    [SerializeField] GameObject Select;
+    [SerializeField] GameObject Select;//選腳色的群組
     AudioSource AS;
-    [SerializeField] AudioClip GameStart;
+    [SerializeField] AudioClip GameStart;//開始音效
     [SerializeField] CanvasGroup CG;
     bool ST;
     [SerializeField] Image[] ready;
