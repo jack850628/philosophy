@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{C731306B-05A4-DEC2-610B-DA917E082AF1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Prop.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ButtonEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="45" Column="32" />
+      <File FileName="Assets/Scripts/PlayerFoot.cs" Line="29" Column="15" />
+      <File FileName="Assets/Scripts/Prop.cs" Line="11" Column="52" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="philosophy" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="game" expanded="True" />
+                <Node name="Prop.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0df513a3-fe99-4d34-8968-363d3ebbeade" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
