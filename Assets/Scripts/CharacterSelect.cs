@@ -8,16 +8,22 @@ public class CharacterSelect : MonoBehaviour
     int cha_ID;
     //這裡放該Player的按鍵,圖片文字等路徑
     [SerializeField] KeyCode L,R;
-    [SerializeField] Text Info,Name,Control;
-    [SerializeField] Image Img;
+    [SerializeField] Text ControlL, ControlR;
+    [SerializeField] Image ready_Img;
+    [SerializeField]AudioClip Button1,Button2;
+    AudioSource AS;
+    //[SerializeField]Text Info, Name;
+   // [SerializeField] Image Img;
     //這裡塞各角色資訊
-    [SerializeField] string[]Cha_name;
-    [SerializeField] string[]Cha_info;
-    [SerializeField] Sprite[]Cha_img;
+    // [SerializeField] string[]Cha_name;
+    // [SerializeField] string[]Cha_info;
+    // [SerializeField] Sprite[]Cha_img;
     // Start is called before the first frame update
     void Start()
     {
-        Control.text = L.ToString() +" "+ R.ToString();
+        AS = GetComponent<AudioSource>();
+        ControlL.text = L.ToString();
+        ControlR.text = R.ToString();
     }
 
     // Update is called once per frame
@@ -55,6 +61,16 @@ public class CharacterSelect : MonoBehaviour
         }*/
         if(Input.GetKeyDown(L)&& Input.GetKeyDown(R))
         {
+            if (ready_Img.enabled==false)
+            {
+                ready_Img.enabled = !ready_Img.enabled;
+                AS.PlayOneShot(Button1);
+            }else if (ready_Img.enabled == true)
+            {
+                ready_Img.enabled = !ready_Img.enabled;
+                AS.PlayOneShot(Button2);
+            }
+
 
         }
     }   
