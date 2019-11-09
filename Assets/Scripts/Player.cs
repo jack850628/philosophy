@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbody;
     private Animator animator;
 
+    public int score;
+
 
     public bool canJump;
 
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = transform.GetComponent<Animator>();
+        score = 0;
     }
 
     private void Update()
