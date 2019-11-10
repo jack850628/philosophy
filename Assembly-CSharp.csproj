@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Scroe.cs" />
     <Compile Include="Assets\Scripts\SelfDestruction.cs" />
     <Compile Include="Assets\Scripts\Settlement.cs" />
+    <Compile Include="Assets\Scripts\Start\Menu.cs" />
     <Compile Include="Assets\Scripts\TheSun.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
