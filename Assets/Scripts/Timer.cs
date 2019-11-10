@@ -6,27 +6,36 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     private Action callBack;
-    private float sec;
-    private bool isRun;
+    private int sec;
     private Text time;
+    private AudioSource audioSource;
 
-    public void startTime(float sec, Action callBack)
+
+    public AudioClip timeteSsion,timeUp;
+
+    public void startTime(int sec, Action callBack)
     {
         this.sec = sec;
         this.callBack = callBack;
-        isRun = true;
         time = GetComponent<Text>();
+        InvokeRepeating("tamer", 1f, 1f);
+        audioSource = GetComponent<AudioSource>();
     }
-    void Update()
+    void tamer()
     {
-        if (isRun)
+        time.text = sec.ToString("0");
+        if (--sec < 0)
         {
-            time.text = sec.ToString("0");
-            if ((sec -= Time.deltaTime) <= 0)
-            {
-                isRun = false;
-                callBack();
-            }
+            callBack();
+            CancelInvoke("tamer");
+        }
+        if(sec <= 10)
+        {
+            audioSource.PlayOneShot(timeteSsion);
+        }
+        else if (sec == 0)
+        {
+            audioSource.PlayOneShot(timeUp);
         }
     }
 }

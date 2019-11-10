@@ -14,6 +14,8 @@ public class ObjectGenerator : MonoBehaviour {
     
 
     private void Update() {
+        if (GameStatus.gameStatus != GameStatus.Status.RUNNING) return;
+
         int k = SamplePoisson(EstObjPerSecond * Time.deltaTime);
         for(int i = 0; i < k; i++) {
             if(prefabs.Length > 0)
@@ -69,7 +71,7 @@ public class ObjectGenerator : MonoBehaviour {
         Instantiate(prefabs[i], pos, Quaternion.identity);
     }
 
-    private int SamplePoisson(float lambda) {
+    public static int SamplePoisson(float lambda) {
         float L = Mathf.Exp(-lambda);
         int k = 0;
         float p = 1;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //遊戲狀態
-public class GameStatus : MonoBehaviour
+public class GameStatus
 {
     private static Status _gameStatus = Status.STOP;
     public enum Status
