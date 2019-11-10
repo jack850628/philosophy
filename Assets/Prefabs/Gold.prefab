@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6274283194386839729}
   - component: {fileID: 7655019596550938128}
   - component: {fileID: 8168290481131983483}
+  - component: {fileID: 6150830440684612090}
   m_Layer: 9
   m_Name: Gold
   m_TagString: Prop
@@ -45,7 +46,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.52, z: 1}
+  m_Size: {x: 1.06, y: 1.12, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6274283194386839729
 MonoBehaviour:
@@ -65,6 +66,7 @@ MonoBehaviour:
   mass: 1
   drag: 9
   isPositive: 1
+  audioClip: {fileID: 8300000, guid: f32377895dbcfb0488f2ea1f1aaa6de4, type: 3}
 --- !u!54 &7655019596550938128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b3b353b99536a4b088053dc86a20dd18, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e87430e20f83437ba56831760246c5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,3 +131,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6150830440684612090
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125214573756268520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4406b4ffd21494d7eb162cafb96a482c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

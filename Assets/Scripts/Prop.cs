@@ -10,6 +10,7 @@ public class Prop : MonoBehaviour
     public GameObject deathExplosion;
     public int mass, drag;
     public bool isPositive;
+    public AudioClip audioClip;
 
     protected void Start()
     {
@@ -22,6 +23,12 @@ public class Prop : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(audioClip != null)
+            {
+                var audioSource = collision.gameObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClip;
+                audioSource.Play();
+            }
             Debug.Log("吃");
             if(!isPositive)
                 collision.gameObject.transform.DOShakePosition(0.5f, new Vector2(0.3f, 0.3f));

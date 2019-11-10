@@ -8,6 +8,7 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField] GameObject Select;//選腳色的群組
     AudioSource AS;
     [SerializeField] AudioClip GameStart;//開始音效
+    [SerializeField] AudioClip GamePlaying;//開始遊玩背景音樂
     [SerializeField] CanvasGroup CG;
     bool ST;
     [SerializeField] Image[] ready;
@@ -57,10 +58,17 @@ public class ButtonEvent : MonoBehaviour
             AS.PlayOneShot(GameStart);
             CG.gameObject.SetActive(true);
             ST = true;
+            StartCoroutine(toGamePlay());
             GameStatus.gameStatus = GameStatus.Status.RUNNING;
             GameObject.Find("time").GetComponent<Timer>().startTime(60, () => {
                 GameStatus.gameStatus = GameStatus.Status.STOP;
             });
         }
+    }
+
+    private IEnumerator toGamePlay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        AS.PlayOneShot(GamePlaying);
     }
 }

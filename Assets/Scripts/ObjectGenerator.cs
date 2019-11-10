@@ -14,6 +14,8 @@ public class ObjectGenerator : MonoBehaviour {
     
 
     private void Update() {
+        if (GameStatus.gameStatus != GameStatus.Status.RUNNING) return;
+
         int k = SamplePoisson(EstObjPerSecond * Time.deltaTime);
         for(int i = 0; i < k; i++) {
             if(prefabs.Length > 0)
