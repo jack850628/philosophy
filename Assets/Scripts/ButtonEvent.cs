@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class ButtonEvent : MonoBehaviour
 {
-    [SerializeField] GameObject Select;//選腳色的群組
+    [SerializeField] GameObject Select,Kid_Canvas;//選腳色的群組
     AudioSource AS;
-    [SerializeField] AudioClip GameStart;//開始音效
+    [SerializeField] AudioClip GameStart,Warning;//開始音效
     [SerializeField] CanvasGroup CG;
-    bool ST;
+    bool ST,HiddenSkill;
     [SerializeField] Image[] ready;
-    [SerializeField] Image Start_Button;
+    [SerializeField] Image Start_Button,Kid;
+
+    [SerializeField] float duration;
+    [SerializeField] Vector3 pos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +61,21 @@ public class ButtonEvent : MonoBehaviour
             AS.PlayOneShot(GameStart);
             CG.gameObject.SetActive(true);
             ST = true;
+            if (HiddenSkill == true|Input.GetKey(KeyCode.B))
+            {
+                StartCoroutine(warn());
+                Kid_Canvas.SetActive(true);
+                Kid.transform.DOMove(pos,duration);
+           }
         }
+    }
+    IEnumerator warn()
+    {
+        
+        AS.clip = Warning;
+        AS.Play();
+        AS.loop = true;
+        yield return new WaitForSeconds(2f);
+        AS.loop = false;
     }
 }
