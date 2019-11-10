@@ -71,7 +71,7 @@ public class ObjectGenerator : MonoBehaviour {
         Instantiate(prefabs[i], pos, Quaternion.identity);
     }
 
-    private int SamplePoisson(float lambda) {
+    public static int SamplePoisson(float lambda) {
         float L = Mathf.Exp(-lambda);
         int k = 0;
         float p = 1;

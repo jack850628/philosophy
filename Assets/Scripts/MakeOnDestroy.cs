@@ -9,5 +9,6 @@ public class MakeOnDestroy : MonoBehaviour {
         GameObject obj = Instantiate(prefab);
         obj.transform.position = this.transform.position;
         obj.transform.rotation = this.transform.rotation;
+        obj.transform.parent = this.transform.parent;
     }
 }

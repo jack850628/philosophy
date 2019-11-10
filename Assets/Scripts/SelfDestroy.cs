@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelfDestruction : MonoBehaviour {
+public class SelfDestroy : MonoBehaviour {
 
-    float countDown = 10f;
+    public float countDown = 10f;
     
     void Update() {
         countDown -= Time.deltaTime;
