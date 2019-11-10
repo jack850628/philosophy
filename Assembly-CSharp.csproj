@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\ObjectGenerator.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerFoot.cs" />
+    <Compile Include="Assets\Scripts\PlayerUltimate.cs" />
     <Compile Include="Assets\Scripts\Prop.cs" />
     <Compile Include="Assets\Scripts\ScoreGiver.cs" />
     <Compile Include="Assets\Scripts\Scroe.cs" />

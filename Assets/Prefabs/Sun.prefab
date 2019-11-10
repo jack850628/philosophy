@@ -9614,7 +9614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationMagnitude: 10
-  skill1Prefab: {fileID: 0}
-  skill2Prefab: {fileID: 0}
-  fx1: {fileID: 0}
-  fx2: {fileID: 0}
+  skill1Prefab: {fileID: 8166975012618559404, guid: 4c20ec6a64723cf44bd4cbfffab915bb,
+    type: 3}
+  skill2Prefab: {fileID: 1395626721005614935, guid: 5396d6c5ca5a27e41b92829ed0b70a62,
+    type: 3}
+  fx1: {fileID: 2739854034127410500, guid: d0e6650bf30059444a61636af329e8a0, type: 3}
+  fx2: {fileID: 6863108190818394496, guid: 3f533876810d4394db4f616353281f1e, type: 3}
