@@ -210,7 +210,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &123870
 RectTransform:
@@ -323,7 +323,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &30219788
 RectTransform:
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   Shady: {fileID: 30219784}
   Button: {fileID: 1079255648}
   Title: {fileID: 1794710617}
-  Next_Scene: 
+  Next_Scene: MainScene
   LobbyMus: {fileID: 8300000, guid: 5405b0e443e4cc8419e9e56324d23a0e, type: 3}
 --- !u!114 &1727669815
 MonoBehaviour:

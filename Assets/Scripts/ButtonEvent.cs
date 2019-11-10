@@ -57,6 +57,10 @@ public class ButtonEvent : MonoBehaviour
             AS.PlayOneShot(GameStart);
             CG.gameObject.SetActive(true);
             ST = true;
+            GameStatus.gameStatus = GameStatus.Status.RUNNING;
+            GameObject.Find("time").GetComponent<Timer>().startTime(60, () => {
+                GameStatus.gameStatus = GameStatus.Status.STOP;
+            });
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,13 +12,23 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbody;
     private Animator animator;
     private float deadRad;
+    private int _score;
 
 
-    public int score;
+    public int score
+    {
+        get => _score;
+        set
+        {
+            _score = value;
+            scoreText.text = _score.ToString();
+            if (_score < 0)
+                goTobDead();
+        }
+    }
     public bool canJump;
+    public Text scoreText;
     public GameObject deathExplosion;
-
-    public int f = 100;
 
     public enum PlayerStatus
     {
@@ -59,8 +70,6 @@ public class Player : MonoBehaviour
                 rigidbody.AddForce(new Vector2(0, 12), ForceMode.Impulse);
                 animator.Play("none");
             }
-            if (f < 0)
-                goTobDead();
         }
         else if(playerStatus == PlayerStatus.DEADING)
         {
@@ -77,22 +86,26 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (playerStatus == PlayerStatus.DEADING && other.gameObject.CompareTag("Floor"))
+        if (playerStatus == PlayerStatus.DEADING && other.gameObject.CompareTag("Wall"))
         {
             playerStatus = PlayerStatus.DEADED;
+            var de = Instantiate(deathExplosion);
+            de.transform.position = transform.position;
+            Destroy(de, 0.5f);
+            Invoke("resurrection", 3f);
+        }
+    }
+    private void resurrection()
+    {
             var newPlayer = Instantiate(gameObject);
             newPlayer.transform.position = new Vector3(0f, 0f, -0.09603548f);
             newPlayer.GetComponent<Collider>().isTrigger = false;
             var player = newPlayer.GetComponent<Player>();
             player.playerStatus = PlayerStatus.LIFE;
-            player.f = 100;
             player.GetComponent<Rigidbody>().velocity = new Vector3();
+            player.score = 0;
             newPlayer.transform.Find("Cube").Find("image").transform.rotation = Quaternion.identity;
-            var de = Instantiate(deathExplosion);
-            de.transform.position = transform.position;
-            Destroy(de, 0.5f);
             Destroy(gameObject);
-        }
     }
     /*private void OnCollisionEnter(Collision collision)
     {
