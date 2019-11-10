@@ -36,6 +36,8 @@ public class FloatingAround : MonoBehaviour {
     }
 
     void Update() {
+        if (GameStatus.gameStatus != GameStatus.Status.RUNNING) return;
+
         t += Time.deltaTime;
 
         switch(state) {
